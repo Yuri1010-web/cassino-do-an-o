@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cassino Do Anão</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Cassino Do Anão</h1>
+    </header>
+    
+    <div class="slots">
+      <div id="slot1" class="slot">👦</div>
+      <div id="slot2" class="slot">🧝‍♂️</div>
+      <div id="slot3" class="slot">🧙‍♂️</div>
+    </div>
+
+    <!-- Mensagem de Vitória -->
+    <div id="win-message" style="display: none; font-size: 70px; color: rgb(0, 17, 255); text-align: center; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+      Você Ganhou!
+    </div>
+
+    <!-- Áudio para tocar durante a rotação -->
+    <audio id="spinSound">
+      <source src="Caça-níqueis de som de jogo multimídia(M4A_128K).m4a" type="audio/mpeg">
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <!-- Áudio para som de vitória -->
+    <audio id="winSound">
+      <source src="Efeito Sonoro - Estágio Concluído - Som da Vitória - Victory Sound(M4A_128K).m4a" type="audio/mpeg">
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <!-- Top bar com nome do cassino e o valor do depósito -->
+    <div class="top-bar">
+      <div id="casino-name">🎰 Cassino Do Anão</div>
+      <div id="deposit">Depósito: <span id="deposit-value">$0</span></div>
+    </div>
+
+    <!-- Segunda barra (ou seção) com nome do cassino e botões de registro/entrada -->
+    <div class="top-bar">
+      <div id="casino-name">🎰 Cassino Do Anão</div>
+      <div id="top-right">
+        <div id="deposit">Depósito: <span id="deposit-value">$0</span></div>
+        <button id="register-btn">Registro</button>
+        <button id="login-btn">Entrar</button>
+      </div>
+    </div>
+
+    <!-- Modal de registro -->
+    <div id="register-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h2>Registrar-se</h2>
+        <form id="register-form">
+          <label for="username">Nome de usuário:</label>
+          <input type="text" id="username" name="username" required>
+    
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+    
+          <label for="password">Senha:</label>
+          <input type="password" id="password" name="password" required>
+    
+          <button type="submit" class="submit-btn">Registrar</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Modal de boas-vindas -->
+    <div id="welcome-screen" class="modal">
+      <div class="modal-content">
+        <h2>Bem-vindo ao Cassino Do Anão</h2>
+        <form id="login-form">
+          <label for="login-email">E-mail:</label>
+          <input type="email" id="login-email" name="email" placeholder="Digite seu e-mail" required>
+    
+          <label for="login-password">Senha:</label>
+          <input type="password" id="login-password" name="password" placeholder="Digite sua senha" required>
+    
+          <div class="button-group">
+            <button type="button" id="register-modal-btn">Registre-se</button>
+            <button type="submit" id="login-modal-btn">Entrar</button>
+          </div>
+          <div id="deposit-value">$0</div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Botão de girar -->
+    <button class="spin-button" id="spin-button" onclick="startSpin()">Girar</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
